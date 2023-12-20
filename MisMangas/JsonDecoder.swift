@@ -15,8 +15,7 @@ func getJSON<JSON: Codable>(request: URLRequest, type: JSON.Type) async throws -
             decoder.dateDecodingStrategy = .formatted(.dateFormatCustom)
             return try decoder.decode(type.self, from: data)
         } catch {
-            print("error al parsear json")
-            print(error.localizedDescription)
+            print(error)
             throw NetworkErrors.parseJson
         }
     } else {

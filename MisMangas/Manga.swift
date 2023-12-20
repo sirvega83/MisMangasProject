@@ -8,21 +8,42 @@
 import SwiftUI
 
 struct Mangas: Identifiable, Hashable {
-
-    let volumes: Int?
-//    let status: Status
     let chapters: Int?
-    let title: String
-    let startDate: String
-    //let themes: [Theme]?
-    let mainPicture: String
     let score: Double
+    let mainPicture: String
+    let background: String?
+    let url: String
+    let endDate: Date?
+    let genres: [Genre]
+    let title: String
     let titleEnglish: String?
+    let authors: [Author]
+    let sypnosis: String?
+    let startDate: Date
+    let themes: [Theme]
+    let demographics: [Demographic]
+    let volumes: Int?
     let id: Int
+    let status: Status
+    let titleJapanese: String
     
-    var mainPictureURL: URL? {
-        let cleanPicture = mainPicture.trimmingCharacters(in: CharacterSet(charactersIn: "\""))
-        return URL(string: "\(cleanPicture)")
+    
+    var formattedMainPicture: URL? {
+        let formattedMainPictureURL = mainPicture.trimmingCharacters(in: CharacterSet(charactersIn: "\""))
+        return URL(string: "\(formattedMainPictureURL)")
+    }
+    
+    var formattedURL: URL? {
+        let formattedUrl = url.trimmingCharacters(in: CharacterSet(charactersIn: "\""))
+        return URL(string: "\(formattedUrl)")
+    }
+    
+    var scoreWithTwoDecimals: String {
+        score.formatted(.number.precision(.fractionLength(1)))
+    }
+    
+    var scoreRate: Double {
+        score / 10
     }
 }
 

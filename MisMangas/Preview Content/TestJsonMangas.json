@@ -289,6 +289,128 @@
       "endDate": "2008-01-01T00:00:00Z",
       "url": "\"https://myanimelist.net/manga/11848/Love_Gashapon\"",
       "background": null
+    },
+    {
+      "sypnosis": null,
+      "id": 111358,
+      "genres": [
+        {
+          "id": "F974BCB6-B002-44A6-A224-90D1E50595A2",
+          "genre": "Comedy"
+        },
+        {
+          "id": "B3E8D4B2-7EE4-49CD-8DB0-9897619B3F62",
+          "genre": "Fantasy"
+        }
+      ],
+      "chapters": null,
+      "demographics": [],
+      "themes": [],
+      "mainPicture": "\"https://cdn.myanimelist.net/images/manga/2/210518l.jpg\"",
+      "volumes": null,
+      "status": "currently_publishing",
+      "titleEnglish": null,
+      "score": 7.38,
+      "titleJapanese": "篠崎くんのメンテ事情",
+      "authors": [
+        {
+          "lastName": "Burio",
+          "id": "3ECD089D-3A51-412C-B7CD-36941AE1B594",
+          "firstName": "Michiru",
+          "role": "Story & Art"
+        }
+      ],
+      "title": "Shinozaki-kun no Maintenance Jijou",
+      "endDate": null,
+      "startDate": "2017-11-30T00:00:00Z",
+      "url": "\"https://myanimelist.net/manga/111358/Shinozaki-kun_no_Maintenance_Jijou\"",
+      "background": null
+    },
+    {
+      "sypnosis": "The end of the Holy War.\n\nThe Pope, in an effort to suppress the remaining eye-witnesses who oppose his power, demands that a gag order be enforced regarding “the miracle” that brought the war to an end: the appearance of the five who bore the stigmata - the Holy Marks - the marks of God.\n\n10 years later...\n\nThe diabolic faction that opposed the Vatican’s power and brought about the Holy War has awakened again and has begun assassinating the once-admired heroes of the Holy War. The Vatican has refused to acknowledge the situation, treating each incident as nothing more than simple coincidence, but in the years that have passed since the Holy War ended, the Pope has been rumored to have created an occult organization called RADEM, whose orders are to fight demons though they seem to have another mission - a much more obscure mission...\n\nThe Cardinal calls for an assembly of the region’s clergymen in the name of the Pope to discuss the situation, and to that end, an ambitious nun named Sister Rose is sent to the Teatela Province on a mission to locate Father Gabriel Iota - a priest suspected of possessing a very strong Holy Power...\n\n(Source: Cireus-Scanlations)",
+      "id": 5210,
+      "themes": [
+        {
+          "id": "3CF0EDA7-5856-40F7-A0CF-EC676B4A842C",
+          "theme": "Historical"
+        }
+      ],
+      "genres": [
+        {
+          "genre": "Drama",
+          "id": "4312867C-1359-494A-AC46-BADFD2E1D4CD"
+        },
+        {
+          "genre": "Fantasy",
+          "id": "B3E8D4B2-7EE4-49CD-8DB0-9897619B3F62"
+        },
+        {
+          "genre": "Supernatural",
+          "id": "AE80120B-6659-4C0E-AEB2-227EC25EC4AF"
+        }
+      ],
+      "demographics": [
+        {
+          "id": "5E05BBF1-A72E-4231-9487-71CFE508F9F9",
+          "demographic": "Shounen"
+        }
+      ],
+      "chapters": 15,
+      "mainPicture": "\"https://cdn.myanimelist.net/images/manga/2/127145l.jpg\"",
+      "volumes": 3,
+      "status": "finished",
+      "titleEnglish": null,
+      "score": 6.87,
+      "titleJapanese": "STIGMATA 〜赤煉の聖者〜",
+      "authors": [
+        {
+          "firstName": "Ya Seong",
+          "lastName": "Ko",
+          "id": "978C46B6-EABB-4924-BFE0-A341AFFAF46C",
+          "role": "Art"
+        }
+      ],
+      "endDate": "2007-06-30T00:00:00Z",
+      "title": "Stigmata: Sekiren no Seija",
+      "startDate": "2006-04-28T00:00:00Z",
+      "url": "\"https://myanimelist.net/manga/5210/Stigmata__Sekiren_no_Seija\"",
+      "background": null
+    },
+    {
+      "sypnosis": "1. Hanabatake to Wakarebanashi\n2. From Summer then On\n3. Our Love\n4-6. Bye-bye Baby",
+      "id": 59023,
+      "genres": [
+        {
+          "id": "688F40FE-655B-46E4-A21A-E256BCA18796",
+          "genre": "Boys Love"
+        },
+        {
+          "id": "536445E3-CEF5-49F7-B22B-6CD9807F0744",
+          "genre": "Slice of Life"
+        }
+      ],
+      "chapters": 6,
+      "demographics": [],
+      "themes": [],
+      "mainPicture": "\"https://cdn.myanimelist.net/images/manga/3/102007l.jpg\"",
+      "volumes": 1,
+      "status": "finished",
+      "titleEnglish": null,
+      "score": 7.19,
+      "titleJapanese": "花畑と別れ話",
+      "authors": [
+        {
+          "id": "AC706E9A-7D0F-4003-9B5D-E18158ED8593",
+          "firstName": "Lalako",
+          "role": "Story & Art",
+          "lastName": "Kojima"
+        }
+      ],
+      "endDate": "2013-01-15T00:00:00Z",
+      "startDate": "2013-01-15T00:00:00Z",
+      "title": "Hanabatake to Wakarebanashi",
+      "url": "\"https://myanimelist.net/manga/59023/Hanabatake_to_Wakarebanashi\"",
+      "background": null
     }
   ],
   "metadata": {

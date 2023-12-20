@@ -7,6 +7,14 @@
 
 import Foundation
 
+
+enum MangasViewType {
+    case list
+    case grid
+    case favoriteList
+    case favoriteGrid
+}
+
 final class MangasViewModel: ObservableObject {
     @Published var mangas: [Mangas] = []
     
