@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Mangas: Identifiable, Hashable {
+struct Manga: Identifiable, Hashable, Codable {
     let chapters: Int?
     let score: Double
     let mainPicture: String
@@ -19,13 +19,14 @@ struct Mangas: Identifiable, Hashable {
     let titleEnglish: String?
     let authors: [Author]
     let sypnosis: String?
-    let startDate: Date
+    let startDate: Date?
     let themes: [Theme]
     let demographics: [Demographic]
     let volumes: Int?
     let id: Int
     let status: Status
-    let titleJapanese: String
+    let titleJapanese: String?
+    var isFavorite: Bool
     
     
     var formattedMainPicture: URL? {

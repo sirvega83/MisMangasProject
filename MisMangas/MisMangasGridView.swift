@@ -17,23 +17,28 @@ struct MisMangasGridView: View {
         NavigationStack {
             ScrollView {
                 LazyVGrid(columns: [itemAdaptative], content: {
-                    ForEach(mangasVM.mangas) { manga in
+                    ForEach(mangasVM.loadFavorites()) { manga in
                         NavigationLink(value: manga){
-                            MangaGridCellView(manga: manga)
+                            MangaGridCellView(mangas: manga)
+                    
                         }
+    
                     }
                 })
             }
             .scrollIndicators(.hidden)
             .navigationTitle("Mis mangas")
-            .navigationDestination(for: Mangas.self) { detail in
-                MangasDetailView(manga: detail)
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationDestination(for: Manga.self) { detail in
+                MangasDetailView(mangasVM: mangasVM, mangas: detail)
             }
         }
     }
 }
 
 #Preview {
+    NavigationStack {
         MisMangasGridView(mangasVM: .localTestMangas)
+    }
 }
 

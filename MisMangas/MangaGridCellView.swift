@@ -8,28 +8,28 @@
 import SwiftUI
 
 struct MangaGridCellView: View {
-    let manga: Mangas
+    let mangas: Manga
     
     var body: some View {
         ZStack {
             VStack {
-                ForEach(manga.themes, id: \.id) { theme in
+                ForEach(mangas.themes, id: \.id) { theme in
                     Text(theme.theme)
                 }
                 
-                AsyncImage(url: manga.formattedMainPicture) { image in
+                AsyncImage(url: mangas.formattedMainPicture) { image in
                     image
                         .resizable()
                         .scaledToFit()
                         .frame(width: 130)
-                    Text(manga.title)
+                    Text(mangas.title)
                         .font(.callout)
                 } placeholder: {
                     Image(systemName: "books.vertical.fill")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 130)
-                    Text(manga.title)
+                    Text(mangas.title)
                         .font(.callout)
                 }
             }
@@ -39,5 +39,5 @@ struct MangaGridCellView: View {
 }
 
 #Preview {
-    MangaGridCellView(manga: .testPreview)
+    MangaGridCellView(mangas: .testPreview)
 }

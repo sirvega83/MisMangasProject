@@ -8,23 +8,39 @@
 import SwiftUI
 
 struct MangasDetailView: View {
-    
-    let manga: Mangas
+    @ObservedObject var mangasVM: MangasViewModel
+    let mangas: Manga
     
     var body: some View {
         VStack {
-            Text(manga.title)
+            Text(mangas.title)
                 .font(.largeTitle)
                 .font(.title)
-            Text(manga.titleJapanese)
+            Text(mangas.titleJapanese ?? "")
                 .padding(.bottom, 40)
-            AsyncImage(url: manga.formattedMainPicture) { image in
+            AsyncImage(url: mangas.formattedMainPicture) { image in
                 image
                     .resizable()
                     .scaledToFit()
                     .frame(width: 200)
-                Text(manga.sypnosis ?? "")
+
+                
+                Button(action: {
+                    mangasVM.toogleFavorites(favoriteManga: mangas)
+                }, label: {
+                    HStack {
+                        mangas.isFavorite ? Text("Añadido a favoritos") : Text("Añadir a favoritos")
+                        mangas.isFavorite ? Image(systemName: "star.fill")
+                        : Image(systemName: "")
+                    }
+                    
+                    
+                })
+
+                
+                Text(mangas.sypnosis ?? "")
                     .font(.callout)
+                    .padding(10)
                     
             } placeholder: {
                 Image(systemName: "books.vertical.fill")
@@ -32,10 +48,11 @@ struct MangasDetailView: View {
                     .scaledToFit()
                     .frame(width: 130)
             }
+            .navigationBarTitleDisplayMode(.large)
         }
     }
 }
 
 #Preview {
-    MangasDetailView(manga: .testPreview)
+    MangasDetailView(mangasVM: .localTestMangas, mangas: .testPreview)
 }

@@ -28,13 +28,13 @@ struct Items: Codable {
         let titleEnglish: String?
         let authors: [Author]
         let sypnosis: String?
-        let startDate: Date
+        let startDate: Date?
         let themes: [Theme]
         let demographics: [Demographic]
         let volumes: Int?
         let id: Int
         let status: Status
-        let titleJapanese: String
+        let titleJapanese: String?
 }
 
 struct Genre: Codable, Hashable {
@@ -62,12 +62,14 @@ struct Demographic: Codable, Hashable {
 
 enum Status: String, Codable {
     case finished = "finished"
-    case  currentlyPublishing = "currently_publishing"
+    case currentlyPublishing = "currently_publishing"
+    case onHiatus = "on_hiatus"
+    case discontinued = "discontinued"
 }
 
 
 extension Items {
-    var toPresentation: Mangas {
-        Mangas(chapters: chapters, score: score, mainPicture: mainPicture, background: background, url: "", endDate: endDate, genres: genres, title: title, titleEnglish: titleEnglish, authors: authors, sypnosis: sypnosis, startDate: startDate, themes: themes, demographics: demographics, volumes: volumes, id: id, status: status, titleJapanese: titleJapanese)
+    var toPresentation: Manga {
+        Manga(chapters: chapters, score: score, mainPicture: mainPicture, background: background, url: "", endDate: endDate, genres: genres, title: title, titleEnglish: titleEnglish, authors: authors, sypnosis: sypnosis, startDate: startDate, themes: themes, demographics: demographics, volumes: volumes, id: id, status: status, titleJapanese: titleJapanese, isFavorite: false)
     }
 }

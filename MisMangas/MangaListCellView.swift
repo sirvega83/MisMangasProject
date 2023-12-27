@@ -9,13 +9,13 @@ import SwiftUI
 
 struct MangaListCellView: View {
     
-    let manga: Mangas
+    let mangas: Manga
     
     @State var circleAnimation = false
     
     var body: some View {
         HStack {
-            AsyncImage(url: manga.formattedMainPicture) { image in
+            AsyncImage(url: mangas.formattedMainPicture) { image in
                 image
                     .resizable()
                     .scaledToFit()
@@ -28,13 +28,19 @@ struct MangaListCellView: View {
                     .frame(width: 80)
             }
             VStack {
-                Text(manga.titleEnglish ?? "")
-                    .font(.headline)
-                Text(manga.title)
+                Text(mangas.title)
                     .font(.body)
+                Text(mangas.titleEnglish ?? "")
+                Text("\(mangas.id)")
+                
+                
             }
             Spacer()
-            ScoreCircleView(manga: manga)
+            if mangas.isFavorite {
+                Image(systemName: "star.fill")
+                    .foregroundStyle(.yellow)
+            }
+            ScoreCircleView(manga: mangas)
                 .padding(.trailing, 5)
             
         }
@@ -42,5 +48,5 @@ struct MangaListCellView: View {
 }
 
 #Preview {
-    MangaListCellView(manga: .testPreview)
+    MangaListCellView(mangas: .testPreview)
 }

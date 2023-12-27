@@ -8,11 +8,17 @@
 import Foundation
 
 protocol MangaInteractorProcotocol {
-    func getMangaInteractor() async throws -> [Mangas]
+    func getManga(page: Int) async throws -> [Manga]
+    func getStringToFind(stringToFind: String) async throws -> [Manga]
 }
 
 struct MangaInteractor: MangaInteractorProcotocol {
-    func getMangaInteractor() async throws -> [Mangas] {
-        try await getJSON(request: .getCustom(url: .listMangaURL), type: MangasDTO.self).items.map(\.toPresentation)
+    func getManga(page: Int) async throws -> [Manga] {
+        try await getJSON(request: .getCustom(url: .listMangaURL, page: page), type: MangasDTO.self).items.map(\.toPresentation)
+    }
+    
+    func getStringToFind(stringToFind: String) async throws -> [Manga] {
+        try await getJSON(request: .getStringToFind(url: .mangaContainsURL, stringToFind: stringToFind), type: MangasDTO.self).items.map(\.toPresentation)
     }
 }
+

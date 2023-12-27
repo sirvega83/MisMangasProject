@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6446E8852B2CC52700A72945 /* MisMangasApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6446E8842B2CC52700A72945 /* MisMangasApp.swift */; };
-		6446E8872B2CC52700A72945 /* MangasBDGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6446E8862B2CC52700A72945 /* MangasBDGridView.swift */; };
 		6446E8892B2CC52800A72945 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6446E8882B2CC52800A72945 /* Assets.xcassets */; };
 		6446E88C2B2CC52800A72945 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6446E88B2B2CC52800A72945 /* Preview Assets.xcassets */; };
 		6446E89A2B2CC5E400A72945 /* MangasDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6446E8992B2CC5E400A72945 /* MangasDTO.swift */; };
@@ -35,7 +34,6 @@
 /* Begin PBXFileReference section */
 		6446E8812B2CC52700A72945 /* MisMangas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MisMangas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6446E8842B2CC52700A72945 /* MisMangasApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MisMangasApp.swift; sourceTree = "<group>"; };
-		6446E8862B2CC52700A72945 /* MangasBDGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangasBDGridView.swift; sourceTree = "<group>"; };
 		6446E8882B2CC52800A72945 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6446E88B2B2CC52800A72945 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6446E8992B2CC5E400A72945 /* MangasDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangasDTO.swift; sourceTree = "<group>"; };
@@ -95,7 +93,7 @@
 				6446E8982B2CC5BD00A72945 /* View */,
 				6446E8962B2CC56B00A72945 /* ViewModel */,
 				6446E8952B2CC56500A72945 /* Interactor */,
-				6446E8942B2CC55F00A72945 /* Network */,
+				6446E8942B2CC55F00A72945 /* Interface */,
 				6446E8932B2CC55700A72945 /* Model */,
 				6446E8922B2CC54500A72945 /* Resources */,
 				6446E88A2B2CC52800A72945 /* Preview Content */,
@@ -131,16 +129,16 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		6446E8942B2CC55F00A72945 /* Network */ = {
+		6446E8942B2CC55F00A72945 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
 				6446E89D2B2CCF6200A72945 /* URL.swift */,
 				6446E89F2B2CD52100A72945 /* URLRequest.swift */,
 				6446E8A12B2CD70A00A72945 /* URLSession.swift */,
-				6446E8A32B2CD93100A72945 /* NetworkErrors.swift */,
 				647BEBAC2B2CF00D0015D22F /* JsonDecoder.swift */,
+				6446E8A32B2CD93100A72945 /* NetworkErrors.swift */,
 			);
-			name = Network;
+			name = Interface;
 			sourceTree = "<group>";
 		};
 		6446E8952B2CC56500A72945 /* Interactor */ = {
@@ -176,7 +174,6 @@
 				64F08B552B3241140001B287 /* MangasDetailView.swift */,
 				64B29F772B2FA64E00AC7C42 /* MangaGridCellView.swift */,
 				64B29F832B30716500AC7C42 /* MangaListCellView.swift */,
-				6446E8862B2CC52700A72945 /* MangasBDGridView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -267,7 +264,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6446E8872B2CC52700A72945 /* MangasBDGridView.swift in Sources */,
 				64F08B542B30F3230001B287 /* ScoreCircleView.swift in Sources */,
 				6446E8A22B2CD70A00A72945 /* URLSession.swift in Sources */,
 				64B29F802B3068E500AC7C42 /* MangasTabView.swift in Sources */,

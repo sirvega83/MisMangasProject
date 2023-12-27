@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ScoreCircleView: View {
     
-    let manga: Mangas
+    let manga: Manga
     
     @State var circleAnimation = false
     
