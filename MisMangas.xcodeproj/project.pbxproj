@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6427DE902B3C664900A74FEC /* FilterMangasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6427DE8F2B3C664900A74FEC /* FilterMangasView.swift */; };
 		6446E8852B2CC52700A72945 /* MisMangasApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6446E8842B2CC52700A72945 /* MisMangasApp.swift */; };
 		6446E8892B2CC52800A72945 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6446E8882B2CC52800A72945 /* Assets.xcassets */; };
 		6446E88C2B2CC52800A72945 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6446E88B2B2CC52800A72945 /* Preview Assets.xcassets */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6427DE8F2B3C664900A74FEC /* FilterMangasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterMangasView.swift; sourceTree = "<group>"; };
 		6446E8812B2CC52700A72945 /* MisMangas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MisMangas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6446E8842B2CC52700A72945 /* MisMangasApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MisMangasApp.swift; sourceTree = "<group>"; };
 		6446E8882B2CC52800A72945 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				64F08B552B3241140001B287 /* MangasDetailView.swift */,
 				64B29F772B2FA64E00AC7C42 /* MangaGridCellView.swift */,
 				64B29F832B30716500AC7C42 /* MangaListCellView.swift */,
+				6427DE8F2B3C664900A74FEC /* FilterMangasView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				64F08B562B3241140001B287 /* MangasDetailView.swift in Sources */,
 				64B29F6E2B2E46C300AC7C42 /* MangasViewModel.swift in Sources */,
 				64B29F702B2E48F400AC7C42 /* TestData.swift in Sources */,
+				6427DE902B3C664900A74FEC /* FilterMangasView.swift in Sources */,
 				6446E89E2B2CCF6200A72945 /* URL.swift in Sources */,
 				64B29F6C2B2E453300AC7C42 /* ListMangaInteractor.swift in Sources */,
 				6446E89A2B2CC5E400A72945 /* MangasDTO.swift in Sources */,

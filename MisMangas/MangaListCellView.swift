@@ -12,6 +12,7 @@ struct MangaListCellView: View {
     let mangas: Manga
     
     @State var circleAnimation = false
+    @State var isFavorite: Bool = false
     
     var body: some View {
         HStack {
@@ -31,12 +32,9 @@ struct MangaListCellView: View {
                 Text(mangas.title)
                     .font(.body)
                 Text(mangas.titleEnglish ?? "")
-                Text("\(mangas.id)")
-                
-                
             }
             Spacer()
-            if mangas.isFavorite {
+            if isFavorite {
                 Image(systemName: "star.fill")
                     .foregroundStyle(.yellow)
             }

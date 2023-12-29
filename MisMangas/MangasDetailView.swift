@@ -10,6 +10,8 @@ import SwiftUI
 struct MangasDetailView: View {
     @ObservedObject var mangasVM: MangasViewModel
     let mangas: Manga
+    @State var isFavorite: Bool = false
+    
     
     var body: some View {
         VStack {
@@ -27,10 +29,11 @@ struct MangasDetailView: View {
                 
                 Button(action: {
                     mangasVM.toogleFavorites(favoriteManga: mangas)
+                    isFavorite.toggle()
                 }, label: {
                     HStack {
-                        mangas.isFavorite ? Text("Añadido a favoritos") : Text("Añadir a favoritos")
-                        mangas.isFavorite ? Image(systemName: "star.fill")
+                        isFavorite ? Text("Añadido a favoritos") : Text("Añadir a favoritos")
+                        isFavorite ? Image(systemName: "star.fill")
                         : Image(systemName: "")
                     }
                     

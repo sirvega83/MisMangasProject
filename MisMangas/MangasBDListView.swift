@@ -7,21 +7,18 @@
 
 import SwiftUI
 
-enum filterBy {
-    case author
-    case genre
-    case demographic
-    case theme
-}
+
 
 struct MangasBDListView: View {
     
     @ObservedObject var mangasVM: MangasViewModel
+    @State var showGenres = false
+    
     
     var body: some View {
         NavigationStack {
             List {
-                ForEach(mangasVM.searchMangas()){ manga in
+                ForEach(mangasVM.mangas){ manga in
                     NavigationLink(value: manga){
                         MangaListCellView(mangas: manga)
                             .onAppear {
@@ -42,28 +39,39 @@ struct MangasBDListView: View {
                 }
                 
             }
-            //            .toolbar {
-            //                ToolbarItem(placement: .topBarTrailing) {
-            //                    Menu {
-            //                        ForEach(filterBy) { filter in
-            //                            filter
-            //                        }
-            //                        Text("prueba")
-            //                    } label: {
-            //                        Label("Filtrar por", systemImage: "line.3.horizontal.decrease.circle.fill")
-            //                    }
-            //
-            //                }
-        }
-        .searchable(text: $mangasVM.searchText, placement: .toolbar, prompt: "Buscador de mangas")
-        .navigationTitle("Biblioteca Mangas")
-        .navigationBarTitleDisplayMode(.inline)
-        .navigationDestination(for: Manga.self) { detail in
-            MangasDetailView(mangasVM: mangasVM, mangas: detail)
+            .sheet(isPresented: $showGenres, content: {
+                FilterMangasView(mangasVM: mangasVM)
+            })
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                        Button {
+                            showGenres.toggle()
+                            
+                        } label: {
+                            Label("Filtrar por", systemImage: "line.3.horizontal.decrease.circle.fill")
+                        }
+                }
+            }
+            .searchable(text: $mangasVM.searchText, placement: .toolbar, prompt: "Buscador de mangas")
+            .onChange(of: mangasVM.searchText, {
+                Task {
+                    await mangasVM.searchMangas()
+                    sleep(1)
+                }
+            })
+//            .onChange(of: mangasVM.genreVM, {
+////                Task {
+////                    await mangasVM.mangaByGenre(genre: mangasVM.selectedGenre.rawValue)
+//                }
+//            })
+            .navigationTitle("Biblioteca Mangas")
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationDestination(for: Manga.self) { detail in
+                MangasDetailView(mangasVM: mangasVM, mangas: detail)
+            }
         }
     }
 }
-
 
 #Preview {
     NavigationStack {

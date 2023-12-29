@@ -12,16 +12,23 @@ extension Manga {
 }
 
 struct testLocalMangas: MangaInteractorProcotocol {
+    func mangaByGenre(genre: Genre) async throws -> [Manga] {
+        let data = try Data(contentsOf: urlTest)
+        return try JSONDecoder().decode(MangasDTO.self, from: data).items.map(\.toPresentation)
+    }
+    
+    func searchManga(page: Int, contain: String) async throws -> [Manga] {
+        let data = try Data(contentsOf: urlTest)
+        return try JSONDecoder().decode(MangasDTO.self, from: data).items.map(\.toPresentation)
+    }
+    
     let urlTest = Bundle.main.url(forResource: "TestJsonMangas", withExtension: "json")!
     
     func getManga(page: Int) async throws -> [Manga] {
         let data = try Data(contentsOf: urlTest)
         return try JSONDecoder().decode(MangasDTO.self, from: data).items.map(\.toPresentation)
     }
-    func getStringToFind(stringToFind: String) async throws -> [Manga] {
-        let data = try Data(contentsOf: urlTest)
-        return try JSONDecoder().decode(MangasDTO.self, from: data).items.map(\.toPresentation)
-    }
+    
 }
 
 extension MangasViewModel {

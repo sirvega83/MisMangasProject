@@ -23,7 +23,6 @@ struct MangasTabView: View {
                 .tabItem {
                     Label("Mis mangas", systemImage: "star.fill"
                     )
-                        
                 }
         }
     }

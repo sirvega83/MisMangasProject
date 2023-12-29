@@ -14,19 +14,20 @@ struct Manga: Identifiable, Hashable, Codable {
     let background: String?
     let url: String
     let endDate: Date?
-    let genres: [Genre]
+    let genres: [Genre2]
     let title: String
     let titleEnglish: String?
-    let authors: [Author]
+    let authors: [AuthorDTO]
     let sypnosis: String?
     let startDate: Date?
-    let themes: [Theme]
-    let demographics: [Demographic]
+    let themes: [ThemeDTO]
+    let demographics: [DemographicDTO]
     let volumes: Int?
     let id: Int
-    let status: Status
+    let status: StatusDTO
     let titleJapanese: String?
     var isFavorite: Bool
+  
     
     
     var formattedMainPicture: URL? {
@@ -46,5 +47,10 @@ struct Manga: Identifiable, Hashable, Codable {
     var scoreRate: Double {
         score / 10
     }
+    
 }
 
+struct Genre2: Codable, Identifiable, Hashable {
+    let id: String
+    let genre: Genre
+}
