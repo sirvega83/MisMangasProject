@@ -21,5 +21,4 @@ func getJSON<JSON: Codable>(request: URLRequest, type: JSON.Type) async throws -
     } else {
         throw NetworkErrors.statusCode(response.statusCode)
     }
-    
 }

@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct MisMangasGridView: View {
-    
-    @ObservedObject var mangasVM : MangasViewModel
+    @EnvironmentObject var mangasVM : MangasViewModel
     
     let itemAdaptative = GridItem(.adaptive(minimum: 130))
     
@@ -20,9 +19,8 @@ struct MisMangasGridView: View {
                     ForEach(mangasVM.loadFavorites()) { manga in
                         NavigationLink(value: manga){
                             MangaGridCellView(mangas: manga)
-                    
+                            
                         }
-    
                     }
                 })
             }
@@ -30,15 +28,16 @@ struct MisMangasGridView: View {
             .navigationTitle("Mis mangas")
             .navigationBarTitleDisplayMode(.inline)
             .navigationDestination(for: Manga.self) { detail in
-                MangasDetailView(mangasVM: mangasVM, mangas: detail)
+                MangasDetailView(mangasVM: _mangasVM, mangas: detail)
             }
         }
     }
 }
 
 #Preview {
-    NavigationStack {
-        MisMangasGridView(mangasVM: .localTestMangas)
-    }
+    
+    MisMangasGridView()
+        .environmentObject(MangasViewModel())
+    
 }
 

@@ -16,7 +16,6 @@ struct MangaGridCellView: View {
                 ForEach(mangas.themes, id: \.id) { theme in
                     Text(theme.theme)
                 }
-                
                 AsyncImage(url: mangas.formattedMainPicture) { image in
                     image
                         .resizable()

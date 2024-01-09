@@ -48,6 +48,10 @@ struct Manga: Identifiable, Hashable, Codable {
         score / 10
     }
     
+    var wrappedVolume: Int {
+        volumes ?? 1
+    }
+    
 }
 
 struct Genre2: Codable, Identifiable, Hashable {

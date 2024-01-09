@@ -7,20 +7,17 @@
 
 import SwiftUI
 
-
-
 struct MangasBDListView: View {
+    @EnvironmentObject var mangasVM: MangasViewModel
     
-    @ObservedObject var mangasVM: MangasViewModel
     @State var showGenres = false
-    
     
     var body: some View {
         NavigationStack {
             List {
                 ForEach(mangasVM.mangas){ manga in
                     NavigationLink(value: manga){
-                        MangaListCellView(mangas: manga)
+                        MangaListCellView( mangas: manga)
                             .onAppear {
                                 mangasVM.nextPage(manga: manga)
                             }
@@ -40,16 +37,15 @@ struct MangasBDListView: View {
                 
             }
             .sheet(isPresented: $showGenres, content: {
-                FilterMangasView(mangasVM: mangasVM)
+                FilterByGenreView()
             })
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                        Button {
-                            showGenres.toggle()
-                            
-                        } label: {
-                            Label("Filtrar por", systemImage: "line.3.horizontal.decrease.circle.fill")
-                        }
+                    Button {
+                        showGenres.toggle()
+                    } label: {
+                        Label("Filtrar por", systemImage: "line.3.horizontal.decrease.circle.fill")
+                    }
                 }
             }
             .searchable(text: $mangasVM.searchText, placement: .toolbar, prompt: "Buscador de mangas")
@@ -59,22 +55,19 @@ struct MangasBDListView: View {
                     sleep(1)
                 }
             })
-//            .onChange(of: mangasVM.genreVM, {
-////                Task {
-////                    await mangasVM.mangaByGenre(genre: mangasVM.selectedGenre.rawValue)
-//                }
-//            })
             .navigationTitle("Biblioteca Mangas")
             .navigationBarTitleDisplayMode(.inline)
             .navigationDestination(for: Manga.self) { detail in
-                MangasDetailView(mangasVM: mangasVM, mangas: detail)
+                MangasDetailView(mangas: detail)
             }
+            
         }
     }
 }
 
 #Preview {
     NavigationStack {
-        MangasBDListView(mangasVM: .localTestMangas)
+        MangasBDListView( )
+            .environmentObject(MangasViewModel())
     }
 }

@@ -8,54 +8,78 @@
 import SwiftUI
 
 struct MangasDetailView: View {
-    @ObservedObject var mangasVM: MangasViewModel
+    @EnvironmentObject var mangasVM: MangasViewModel
+   
     let mangas: Manga
-    @State var isFavorite: Bool = false
+    @State var showVolumesList = false
     
     
     var body: some View {
-        VStack {
-            Text(mangas.title)
-                .font(.largeTitle)
-                .font(.title)
-            Text(mangas.titleJapanese ?? "")
-                .padding(.bottom, 40)
-            AsyncImage(url: mangas.formattedMainPicture) { image in
-                image
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 200)
-
+        ScrollView {
+            VStack {
+                Text(mangas.title)
+                    .font(.largeTitle)
+                    .font(.title)
+                    .padding(10)
+                Text(mangas.titleJapanese ?? "")
+                    .padding(.bottom, 10)
+                AsyncImage(url: mangas.formattedMainPicture) { image in
+                    image
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 250)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                        .shadow(color: .purple, radius: 5)
+                    
+                } placeholder: {
+                    Image(systemName: "books.vertical.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 130)
+                }
                 
                 Button(action: {
                     mangasVM.toogleFavorites(favoriteManga: mangas)
-                    isFavorite.toggle()
+                    print("Hash de detailView \(mangas.hashValue)")
                 }, label: {
-                    HStack {
-                        isFavorite ? Text("Añadido a favoritos") : Text("Añadir a favoritos")
-                        isFavorite ? Image(systemName: "star.fill")
-                        : Image(systemName: "")
+                    if mangas.isFavorite {
+                        Image(systemName: "star.fill")
+                            .foregroundStyle(.yellow)
+                    } else {
+                        Image(systemName: "star")
+                            .foregroundStyle(.purple)
                     }
-                    
-                    
                 })
-
+               
+                Button(action: {
+                    showVolumesList.toggle()
+                }, label: {
+                    VStack{
+                        Image(systemName: "books.vertical.fill")
+                            .foregroundStyle(LinearGradient(colors: [.yellow.opacity(0.8), .yellow.opacity(0.6), .yellow.opacity(0.3)], startPoint: .top, endPoint: .bottom))
+                        Text("\(mangas.volumes ?? 1) \(mangas.volumes == 1 ? "Volumen" : "Volúmenes")")
+                    }
+                })
+                .padding(EdgeInsets(top: 12, leading: 20, bottom: 12, trailing: 20))
+                .foregroundStyle(.black)
+                .background(LinearGradient(colors: [.pink.opacity(0.8), .purple.opacity(0.6), .blue.opacity(0.3)], startPoint: .leading, endPoint: .trailing), in: Capsule())
+                
                 
                 Text(mangas.sypnosis ?? "")
                     .font(.callout)
                     .padding(10)
-                    
-            } placeholder: {
-                Image(systemName: "books.vertical.fill")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 130)
+                
+                    .navigationBarTitleDisplayMode(.large)
             }
-            .navigationBarTitleDisplayMode(.large)
+            .sheet(isPresented: $showVolumesList, content: {
+                VolumesListView(mangasVM: mangasVM, mangas: mangas)
+            })
+         
         }
     }
 }
 
 #Preview {
-    MangasDetailView(mangasVM: .localTestMangas, mangas: .testPreview)
+    MangasDetailView( mangas: .testPreview)
+        .environmentObject(MangasViewModel())
 }

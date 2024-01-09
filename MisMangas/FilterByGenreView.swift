@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct FilterMangasView: View {
-    @ObservedObject var mangasVM: MangasViewModel
+struct FilterByGenreView: View {
+    @EnvironmentObject var mangasVM: MangasViewModel
     
     @Environment(\.dismiss) var dismiss
     
@@ -16,11 +16,11 @@ struct FilterMangasView: View {
         List {
             ForEach(Genre.allCases){ genre in
                 Text(genre.rawValue)
+                    .padding(.leading, 40)
                     .onTapGesture {
                         mangasVM.selectedGenre = genre.rawValue
                         print(mangasVM.selectedGenre)
                         dismiss()
-                        //Llamada a función filtrar
                     }
             }
         }
@@ -31,6 +31,7 @@ struct FilterMangasView: View {
 
 #Preview {
     NavigationStack {
-        FilterMangasView(mangasVM: .localTestMangas)
+        FilterByGenreView()
+            .environmentObject(MangasViewModel())
     }
 }

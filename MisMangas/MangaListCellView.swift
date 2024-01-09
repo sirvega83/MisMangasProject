@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct MangaListCellView: View {
+    @EnvironmentObject var mangasVM: MangasViewModel
     
     let mangas: Manga
     
     @State var circleAnimation = false
-    @State var isFavorite: Bool = false
+
     
     var body: some View {
         HStack {
@@ -21,6 +22,8 @@ struct MangaListCellView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 80)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .shadow(color: .purple, radius: 5)
                 
             } placeholder: {
                 Image(systemName: "books.vertical.fill")
@@ -32,9 +35,15 @@ struct MangaListCellView: View {
                 Text(mangas.title)
                     .font(.body)
                 Text(mangas.titleEnglish ?? "")
+//                ForEach(mangas.genres) { genre in
+//                    Text(genre.genre.rawValue)
+//                }
+
             }
+            
             Spacer()
-            if isFavorite {
+            
+            if mangas.isFavorite{
                 Image(systemName: "star.fill")
                     .foregroundStyle(.yellow)
             }
@@ -47,4 +56,5 @@ struct MangaListCellView: View {
 
 #Preview {
     MangaListCellView(mangas: .testPreview)
+        .environmentObject(MangasViewModel())
 }

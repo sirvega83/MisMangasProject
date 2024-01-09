@@ -7,15 +7,16 @@
 
 import Foundation
 
-
-
 final class MangasViewModel: ObservableObject {
     @Published var mangas: [Manga] = []
+    
     @Published var searchText: String = "" {
         willSet {
             page = 1
         }
     }
+    
+    @Published var favoriteManga = false
     
     @Published var selectedGenre: String = "" {
         didSet { //valor actual
@@ -33,7 +34,10 @@ final class MangasViewModel: ObservableObject {
     
     var page = 1
     
-    
+    //Variables Volumes
+    var isPurchased = false
+    var isRead = false
+
     init(mangaInteractor: MangaInteractorProcotocol = MangaInteractor()) {
         self.mangaInteractor = mangaInteractor
         
@@ -130,10 +134,11 @@ final class MangasViewModel: ObservableObject {
     }
     
     
-    
+  
     func toogleFavorites(favoriteManga: Manga) {
         if let index = mangas.firstIndex(where: { $0.id == favoriteManga.id }) {
             mangas[index].isFavorite.toggle()
+            print("Hashvalue mangasviewmodel \(mangas.hashValue)")
             saveFavorites()
         }
     }
